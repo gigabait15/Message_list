@@ -1,0 +1,11 @@
+{% extends 'EmailMessage/base.html' %}
+
+{% block content %}
+    <h2>Удалить почтовый аккаунт</h2>
+    <p>Вы уверены, что хотите удалить аккаунт с email: {{ object.email }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        <a href="{% url 'EmailMessage:email_account' %}" class="btn btn-secondary">Отмена</a>
+    </form>
+{% endblock %}

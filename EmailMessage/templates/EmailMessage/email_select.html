@@ -1,0 +1,50 @@
+{% extends 'EmailMessage/base.html' %}
+{% load static %}
+{% block content %}
+
+<form id="email-form">
+    <label for="email-select">Выберите почту:</label>
+    <select id="email-select" name="email">
+        {% for account in email_accounts %}
+        <option value="{{ account.email }}">{{ account.email }}</option>
+        {% endfor %}
+    </select>
+    <button type="button" onclick="startLoading()">Начать загрузку писем</button>
+</form>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 mt-5 text-center">
+            <h1 id="email-header">Письма с почты {{ email_accounts.0.email }} будут отображаться ниже</h1>
+            <p>Загрузка писем: <span id="loaded-count">0</span> из <span id="total-count">0</span></p>
+            <div class="progress-container">
+                <div class="progress" role="progressbar" aria-label="Прогресс загрузки" aria-valuenow="0"
+                     aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" id="progress-bar" style="width: 0%">
+                        <span class="text">0%</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <table class="table table-bordered table-striped table-hover w-100">
+            <thead>
+            <tr>
+                <th>Дата письма</th>
+                <th>От кого</th>
+                <th>Тема</th>
+                <th>Сообщение</th>
+            </tr>
+            </thead>
+            <tbody id="email-table-body">
+            <!-- Здесь будут добавляться письма -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script src="{% static 'js/scripts.js' %}"></script>
+{% endblock %}

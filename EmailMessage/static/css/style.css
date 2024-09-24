@@ -1,0 +1,28 @@
+    table {
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid black;
+    }
+
+    .progress {
+    height: 30px; /* Высота прогресс-бара */
+    }
+
+    .progress-bar {
+        display: flex;
+        justify-content: center; /* Центрирование по горизонтали */
+        align-items: center; /* Центрирование по вертикали */
+        height: 100%; /* Полоса по высоте будет заполнена */
+        background-color: #007bff; /* Цвет прогресс-бара */
+        position: relative; /* Устанавливаем относительное позиционирование для дочерних элементов */
+    }
+
+    .text {
+        position: absolute; /* Устанавливаем абсолютное позиционирование для текста */
+        left: 50%; /* Перемещаем текст в центр */
+        transform: translateX(-50%); /* Сдвигаем текст на 50% от его ширины */
+        color: #fff; /* Цвет текста */
+        font-weight: bold; /* Устанавливаем жирный шрифт */
+    }
+
